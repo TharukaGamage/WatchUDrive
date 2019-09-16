@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    tools:context=".NewsFeedActivity"
+    >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/id_appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorMainBackground"
+            app:layout_scrollFlags="enterAlways"
+            >
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/colorMainBackground"
+            >
+
+            <EditText
+                android:id="@+id/id_search_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Search"
+                android:textSize="25dp"
+                android:textColor="@color/buttonStroke"
+                android:fontFamily="@font/opensans_light"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                />
+
+        </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/id_tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabIconTint="@color/tab_selector"
+            app:tabIndicatorColor="@color/buttonStroke"
+            >
+
+        </com.google.android.material.tabs.TabLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+<androidx.viewpager.widget.ViewPager
+    android:id="@+id/id_viewPager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+</androidx.viewpager.widget.ViewPager>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
