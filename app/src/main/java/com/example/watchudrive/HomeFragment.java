@@ -8,8 +8,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment  {
 
     View v;
 
@@ -22,4 +23,5 @@ public class HomeFragment extends Fragment {
         v= inflater.inflate(R.layout.home_fragment,container,false);
         return  v;
     }
+
 }

@@ -5,6 +5,7 @@ import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
@@ -12,7 +13,7 @@ import com.google.android.material.tabs.TabLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class NewsFeedActivity extends AppCompatActivity {
+public class NewsFeedActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
      @BindView(R.id.id_tabLayout)
     TabLayout tabLayout;
@@ -42,6 +43,11 @@ public class NewsFeedActivity extends AppCompatActivity {
         tabLayout.getTabAt(1).setIcon(R.drawable.icons8_news_feed_64);
         tabLayout.getTabAt(2).setIcon(R.drawable.icons8_bell_50);
         tabLayout.getTabAt(3).setIcon(R.drawable.icons8_menu_50);
+
+    }
+
+    @Override
+    public void onRefresh() {
 
     }
 }

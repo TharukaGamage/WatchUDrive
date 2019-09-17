@@ -49,5 +49,6 @@ dependencies {
     implementation 'com.google.android.exoplayer:exoplayer-core:2.8.4'
     implementation 'com.google.android.exoplayer:exoplayer-dash:2.8.4'
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.8.4'
-    implementation 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.8.4'
+    //Circle imageview
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
 }
