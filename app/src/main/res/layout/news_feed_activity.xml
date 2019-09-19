@@ -10,12 +10,6 @@
     tools:context=".NewsFeedActivity"
     >
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/id_appBar"
         android:layout_width="match_parent"
@@ -66,11 +60,11 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-<androidx.viewpager.widget.ViewPager
-    android:id="@+id/id_viewPager"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/id_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="748dp">
 
-</androidx.viewpager.widget.ViewPager>
+    </androidx.viewpager.widget.ViewPager>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -94,18 +94,34 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/id_image_v"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:background="@drawable/loading_shape"
-            android:src="@drawable/samplehd" />
-    </LinearLayout>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/videoFullScreenPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#A6000000"
+        app:controller_layout_id="@layout/exo_player_control_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.96"
+        app:player_layout_id="@layout/exo_simple_player_view"
+        app:repeat_toggle_modes="none"
+        app:resize_mode="fill"
+        app:show_timeout="45000"
+        app:surface_type="texture_view" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

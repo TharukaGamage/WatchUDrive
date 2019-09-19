@@ -13,14 +13,14 @@ import com.google.android.material.tabs.TabLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class NewsFeedActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
+public class NewsFeedActivity extends AppCompatActivity{
 
      @BindView(R.id.id_tabLayout)
     TabLayout tabLayout;
      @BindView(R.id.id_viewPager)
     ViewPager viewPager;
-     @BindView(R.id.id_search_text)
-    EditText editTextSearchBar;
+     /*@BindView(R.id.id_search_text)
+    EditText editTextSearchBar;*/
      private NewsFeedViewpagerAdapter adapter;
 
 
@@ -32,8 +32,9 @@ public class NewsFeedActivity extends AppCompatActivity implements SwipeRefreshL
 
         adapter = new NewsFeedViewpagerAdapter(getSupportFragmentManager());
 
-        adapter.addFragment(new HomeFragment(),"");
+
         adapter.addFragment(new ProfileFragment(),"");
+        adapter.addFragment(new HomeFragment(),"");
         adapter.addFragment(new NotificationFragment(),"");
         adapter.addFragment(new SettingsFragment(),"");
         viewPager.setAdapter(adapter);
@@ -46,8 +47,4 @@ public class NewsFeedActivity extends AppCompatActivity implements SwipeRefreshL
 
     }
 
-    @Override
-    public void onRefresh() {
-
-    }
 }
