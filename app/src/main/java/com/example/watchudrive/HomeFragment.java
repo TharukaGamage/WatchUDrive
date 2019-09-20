@@ -44,12 +44,15 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     int itemCount = 0;
     String a[],b[],c[],d[];
     int x;
-    String url_head = "https://yellow-dragonfly-53.localtunnel.me";
+    String url_head = "https://curly-wolverine-73.localtunnel.me" +
+            "";
     String url_tail = "/api/profile";
     String url = (url_head+url_tail);
+    List<PostItem> items = new ArrayList<>();
 
 
     public HomeFragment() {
+
     }
 
     @Nullable
@@ -87,7 +90,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         return  v;
     }
     private void doApiCall() {
-        List<PostItem> items = new ArrayList<>();
+
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
                 url,
@@ -126,8 +129,8 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         );
 
         try {
-            for(int i = 0;i<x;i++){
 
+            for(int i = 0;i<x;i++){
                 PostItem postItem = new PostItem();
                 postItem.setTitle(a[i]);
                 postItem.setDescription((b[i]));

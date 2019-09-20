@@ -16,11 +16,13 @@
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
+
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorMainBackground"
-            app:layout_scrollFlags="enterAlways"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             >
 
             <LinearLayout
@@ -63,7 +65,8 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/id_viewPager"
         android:layout_width="match_parent"
-        android:layout_height="748dp">
+        android:layout_height="748dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     </androidx.viewpager.widget.ViewPager>
 

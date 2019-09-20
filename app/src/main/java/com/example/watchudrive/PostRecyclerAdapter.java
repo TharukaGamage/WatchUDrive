@@ -54,6 +54,7 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder>  {
     private static final int VIEW_TYPE_LOADING = 0;
     private static final int VIEW_TYPE_NORMAL = 1;
     private static final int VIEW_TYPE_TEXT = 2;
+    private  static final int VIEW_TYPE_UPLOD = 3;
     private boolean isLoaderVisible = false;
     RequestOptions options;
 
@@ -65,11 +66,13 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder>  {
         this.mPostItems = postItems;
         this.mContext = context;
         options = new RequestOptions().centerCrop().placeholder(R.drawable.loading_shape).error(R.drawable.loading_shape);
+        
     }
 
     @NonNull
     @Override
     public  BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
 
         switch (viewType) {
             case VIEW_TYPE_NORMAL:
@@ -78,9 +81,13 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder>  {
             case VIEW_TYPE_LOADING:
                 return new ProgressHolder(
                         LayoutInflater.from(parent.getContext()).inflate(R.layout.item_loading, parent, false));
+                        //LayoutInflater.from(parent.getContext()).inflate(R.layout.upload_image_video_item, parent, false));
             case VIEW_TYPE_TEXT:
                 return new TextHolder(
                         LayoutInflater.from(parent.getContext()).inflate(R.layout.video_item_new, parent, false));
+            case VIEW_TYPE_UPLOD:
+                return new PostItemholder(
+                        LayoutInflater.from(parent.getContext()).inflate(R.layout.upload_image_video_item, parent, false));
             default:
                 return null;
         }
@@ -89,20 +96,28 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder>  {
     @Override
     public void onBindViewHolder(@NonNull BaseViewHolder holder, int position) {
         holder.onBind(position);
-
     }
 
     @Override
     public int getItemViewType(int position) {
+
         String s = mPostItems.get(position).getType();
+
         if (isLoaderVisible) {
+
             if(position == mPostItems.size()-1){
+
                 return VIEW_TYPE_LOADING;
             }
             else {
+
                 if(s.equals("text")){
 
                     return VIEW_TYPE_TEXT;
+                }
+                if(s.equals("init")){
+
+                    return VIEW_TYPE_UPLOD;
                 }
                 else {
                     return VIEW_TYPE_NORMAL;
@@ -217,37 +232,60 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder>  {
         public void onBind(int position) {
             super.onBind(position);
             PostItem item = mPostItems.get(position);
+            try {
+                BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
+                TrackSelector trackSelector = new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(bandwidthMeter));
+                exoPlayer = ExoPlayerFactory.newSimpleInstance(mContext, trackSelector);
 
-            BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
-            TrackSelector trackSelector = new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(bandwidthMeter));
-            exoPlayer = ExoPlayerFactory.newSimpleInstance(mContext,trackSelector);
+                Uri videoURI = Uri.parse(item.getImage_url());
 
-            Uri videoURI = Uri.parse(item.getImage_url());
+                DefaultHttpDataSourceFactory defaultHttpDataSourceFactory = new DefaultHttpDataSourceFactory("xxx");
+                ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
+                MediaSource videoSource = new ExtractorMediaSource.Factory(defaultHttpDataSourceFactory).createMediaSource(videoURI);
 
-            DefaultHttpDataSourceFactory defaultHttpDataSourceFactory = new DefaultHttpDataSourceFactory("xxx");
-            ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
-            MediaSource videoSource = new ExtractorMediaSource.Factory(defaultHttpDataSourceFactory).createMediaSource(videoURI);
-
-            videoFullScreenPlayer.setPlayer(exoPlayer);
-            videoFullScreenPlayer.setUseController(true);
-            defaultTimeBar.setVisibility(View.GONE);
-            videoFullScreenPlayer.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_ZOOM);
-            exoPlayer.setVideoScalingMode(C.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING);
-            videoFullScreenPlayer.setControllerHideOnTouch(false);
-            exoPlayer.prepare(videoSource);
+                videoFullScreenPlayer.setPlayer(exoPlayer);
+                videoFullScreenPlayer.setUseController(true);
+                defaultTimeBar.setVisibility(View.GONE);
+                videoFullScreenPlayer.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_ZOOM);
+                exoPlayer.setVideoScalingMode(C.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING);
+                videoFullScreenPlayer.setControllerHideOnTouch(false);
+                exoPlayer.prepare(videoSource);
 
 
-            imageButtonPlay.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    exoPlayer.setPlayWhenReady(true);
-                    videoFullScreenPlayer.setControllerHideOnTouch(true);
-                    imageButtonPause.setVisibility(View.GONE);
-                    defaultTimeBar.setVisibility(View.VISIBLE);
-                }
-            });
+                imageButtonPlay.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        exoPlayer.setPlayWhenReady(true);
+                        videoFullScreenPlayer.setControllerHideOnTouch(true);
+                        imageButtonPause.setVisibility(View.GONE);
+                        defaultTimeBar.setVisibility(View.VISIBLE);
+                    }
+                });
+
+            } catch (Exception ex) {
+
+            }
+        }
+    }
+
+    public class PostItemholder extends BaseViewHolder{
+
+        @BindView(R.id.id_btn_upload)ImageButton imageButtonUpload;
+
+        public PostItemholder(@NonNull View itemView) {
+            super(itemView);
+            ButterKnife.bind(this,itemView);
+        }
+
+        @Override
+        protected void clear() {
+
         }
 
 
+        public void onBind(int position){
+            super.onBind(position);
+            PostItem item = mPostItems.get(position);
+        }
     }
 }
