@@ -66,7 +66,7 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder>  {
         this.mPostItems = postItems;
         this.mContext = context;
         options = new RequestOptions().centerCrop().placeholder(R.drawable.loading_shape).error(R.drawable.loading_shape);
-        
+       // getItemViewType(0);
     }
 
     @NonNull
@@ -110,15 +110,17 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder>  {
                 return VIEW_TYPE_LOADING;
             }
             else {
+                if(position==0){
+
+                    return VIEW_TYPE_UPLOD;
+
+                }
 
                 if(s.equals("text")){
 
                     return VIEW_TYPE_TEXT;
                 }
-                if(s.equals("init")){
 
-                    return VIEW_TYPE_UPLOD;
-                }
                 else {
                     return VIEW_TYPE_NORMAL;
                 }

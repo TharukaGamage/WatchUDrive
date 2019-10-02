@@ -44,7 +44,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     int itemCount = 0;
     String a[],b[],c[],d[];
     int x;
-    String url_head = "https://curly-wolverine-73.localtunnel.me" +
+    String url_head = "https://old-wasp-54.localtunnel.me" +
             "";
     String url_tail = "/api/profile";
     String url = (url_head+url_tail);
