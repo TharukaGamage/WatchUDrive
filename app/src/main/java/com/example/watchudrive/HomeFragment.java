@@ -36,7 +36,6 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     RecyclerView recyclerView;
     PostRecyclerAdapter postRecyclerAdapter;
     SwipeRefreshLayout swipeRefreshLayout;
-    private PostRecyclerAdapter adapter;
     private int currentPage = PAGE_START;
     private boolean isLastPage = false;
     private int totalPage = 10;
@@ -44,8 +43,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     int itemCount = 0;
     String a[],b[],c[],d[];
     int x;
-    String url_head = "https://old-wasp-54.localtunnel.me" +
-            "";
+    String url_head = "https://witty-bird-5.localtunnel.me";
     String url_tail = "/api/profile";
     String url = (url_head+url_tail);
     List<PostItem> items = new ArrayList<>();
