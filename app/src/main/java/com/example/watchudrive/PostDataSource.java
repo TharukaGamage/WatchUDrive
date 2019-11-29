@@ -53,7 +53,7 @@ public class PostDataSource extends PageKeyedDataSource<Long, PostItem> {
                            @NonNull LoadCallback<Long, PostItem> callback) {
 
         ApiService service = ApiServiceBuilder.buildService(ApiService.class);
-        Call<PostItemResponse> call = service.getPosts(FIRST_PAGE);
+        Call<PostItemResponse> call = service.getPosts(FIRST_PAGE+1);
 
         call.enqueue(new Callback<PostItemResponse>() {
             @Override
@@ -85,7 +85,7 @@ public class PostDataSource extends PageKeyedDataSource<Long, PostItem> {
                           @NonNull LoadCallback<Long, PostItem> callback) {
 
         ApiService service = ApiServiceBuilder.buildService(ApiService.class);
-        Call<PostItemResponse> call = service.getPosts(FIRST_PAGE);
+        Call<PostItemResponse> call = service.getPosts(params.key);
 
         call.enqueue(new Callback<PostItemResponse>() {
             @Override

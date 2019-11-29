@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiServiceBuilder {
     // Base URL
-    private static final String URL = "https://reqres.in/api/";
+    private static final String URL = HttpResources.BASE_URL;
     // Create Logger
     private static HttpLoggingInterceptor logger =
             new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);

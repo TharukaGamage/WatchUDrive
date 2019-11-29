@@ -4,10 +4,12 @@ import android.view.View;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.watchudrive.PostItemModel.PostItem;
+
 
 public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
 
-    private int mCurrentPosition;
+    protected PostItem postItem;
 
     public BaseViewHolder(View itemView) {
         super(itemView);
@@ -15,12 +17,12 @@ public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
 
     protected abstract void clear();
 
-    public void onBind(int position) {
-        mCurrentPosition = position;
+    public void onBind(PostItem postItem) {
+        this.postItem = postItem;
         clear();
     }
 
-    public int getCurrentPosition() {
-        return mCurrentPosition;
+    public PostItem getCurrentPosition() {
+        return postItem;
     }
 }

@@ -19,6 +19,7 @@
         >
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/id_profile_uploader"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/sample2"
@@ -64,6 +65,7 @@
             >
 
             <ImageButton
+                android:id="@+id/id_imgBtn_options"
                 android:layout_width="27dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -81,6 +83,7 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/id_caption_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -101,7 +104,7 @@
 
 
     <com.google.android.exoplayer2.ui.PlayerView
-        android:id="@+id/videoFullScreenPlayer"
+        android:id="@+id/id_videoFullScreenPlayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#A6000000"
@@ -134,6 +137,7 @@
         >
 
         <ImageButton
+            android:id="@+id/id_imgBtn_react"
             android:layout_width="wrap_content"
             android:layout_height="37dp"
             android:layout_marginRight="130dp"
@@ -141,6 +145,7 @@
             android:src="@drawable/btn_like_reguler" />
 
         <ImageButton
+            android:id="@+id/id_imgBtn_review_comment"
             android:layout_width="wrap_content"
             android:layout_height="37dp"
             android:background="@color/white"

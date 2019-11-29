@@ -1,3 +1,4 @@
+/*
 package com.example.watchudrive;
 import android.content.Context;
 import android.net.Uri;
@@ -36,7 +37,9 @@ import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 
 import java.util.List;
 
-/*public class PostRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder>  {
+
+
+public class PostRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder>  {
     private static final int VIEW_TYPE_LOADING = 0;
     private static final int VIEW_TYPE_NORMAL = 1;
     private static final int VIEW_TYPE_TEXT = 2;
@@ -276,4 +279,6 @@ import java.util.List;
             PostItemResponse.PostItem item = mPostItems.get(position);
         }
     }
-}*/
+}
+
+*/
