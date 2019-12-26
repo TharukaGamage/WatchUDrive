@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="7.5dp"
+    android:layout_marginBottom="7.5dp"
+    android:background="@color/colorMainBackground"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:orientation="horizontal"
+
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+
+            android:id="@+id/id_uploader_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:padding="5dp"
+            android:src="@drawable/sample2" />
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/id_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/opensans_regular"
+                android:padding="2dp"
+                android:text="Kanakanam Gamage Tharuka  "
+                android:textColor="@color/Black"
+                android:textSize="50px" />
+
+            <TextView
+                android:id="@+id/id_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:padding="2dp"
+                android:text="2 min ago "
+                android:textSize="11dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right">
+
+            <ImageButton
+                android:id="@+id/id_Image_button_options"
+                android:layout_width="27dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/transparent"
+                android:backgroundTint="@color/transparent"
+                android:src="@drawable/ellipsis" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/id_tv_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/opensans_light"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:text="Nice parking, morons. #SLtraffic   "
+            android:textColor="@color/Black"
+            android:textSize="50px" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/id_image_v"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:background="@drawable/loading_shape"
+            android:src="@drawable/samplehd" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/border_none"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageButton
+            android:id="@+id/id_imageBtn_react"
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:layout_marginRight="130dp"
+            android:background="@color/white"
+            android:src="@drawable/btn_like_reguler" />
+
+        <ImageButton
+            android:id="@+id/id_imgBtn_review_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:background="@color/white"
+            android:src="@drawable/btn_review" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
