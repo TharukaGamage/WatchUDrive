@@ -105,8 +105,9 @@
 
     <com.google.android.exoplayer2.ui.PlayerView
         android:id="@+id/id_videoFullScreenPlayer"
-        android:layout_width="match_parent"
+        android:minHeight="200dp"
         android:layout_height="wrap_content"
+        android:layout_width="match_parent"
         android:background="#A6000000"
         app:controller_layout_id="@layout/exo_player_control_view"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -126,34 +127,62 @@
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/border_none"
-        android:padding="5dp"
+        android:layout_height="37dp"
         android:layout_marginTop="2dp"
-        android:gravity="center_horizontal"
-        >
+        android:background="@drawable/border_none"
+        android:gravity="center_horizontal">
 
         <ImageButton
             android:id="@+id/id_imgBtn_react"
             android:layout_width="wrap_content"
-            android:layout_height="37dp"
-            android:layout_marginRight="130dp"
+            android:layout_height="wrap_content"
             android:background="@color/white"
-            android:src="@drawable/btn_like_reguler" />
+            android:src="@drawable/btn_like_reguler"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline11"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/id_btn_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:src="@drawable/btn_review"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.458"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/id_imgBtn_review_comment"
             android:layout_width="wrap_content"
-            android:layout_height="37dp"
+            android:layout_height="wrap_content"
             android:background="@color/white"
-            android:src="@drawable/btn_review" />
+            android:src="@drawable/comment4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline12"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
 
 
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </LinearLayout>
