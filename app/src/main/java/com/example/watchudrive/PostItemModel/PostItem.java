@@ -1,10 +1,19 @@
 package com.example.watchudrive.PostItemModel;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
-public class PostItem {
+public class PostItem implements Parcelable {
+
     @SerializedName("uploader_name")
     private String uploader_name;
     @SerializedName("profile_pic_url")
@@ -36,6 +45,36 @@ public class PostItem {
     @SerializedName("comments")
     private List<Comments> comments;
 
+
+    protected PostItem(Parcel in) {
+        uploader_name = in.readString();
+        profile_pic_url = in.readString();
+        date_time = in.readString();
+        reports = in.readInt();
+        likes = in.readInt();
+        dislikes = in.readInt();
+        post_url = in.readString();
+        en_revs = in.readByte() != 0;
+        hide_status = in.readByte() != 0;
+        num_reviews = in.readInt();
+        _id = in.readString();
+        uploader_id = in.readString();
+        caption = in.readString();
+        post_type = in.readString();
+        comments = in.createTypedArrayList(Comments.CREATOR);
+    }
+
+    public static final Creator<PostItem> CREATOR = new Creator<PostItem>() {
+        @Override
+        public PostItem createFromParcel(Parcel in) {
+            return new PostItem(in);
+        }
+
+        @Override
+        public PostItem[] newArray(int size) {
+            return new PostItem[size];
+        }
+    };
 
     public String getUploader_name() {
         return uploader_name;
@@ -150,4 +189,29 @@ public class PostItem {
     public List<Comments> getComments() { return comments; }
 
     public void setComments(List<Comments> comments) { this.comments = comments; }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(uploader_name);
+        parcel.writeString(profile_pic_url);
+        parcel.writeString(date_time);
+        parcel.writeInt(reports);
+        parcel.writeInt(likes);
+        parcel.writeInt(dislikes);
+        parcel.writeString(post_url);
+        parcel.writeByte((byte) (en_revs ? 1 : 0));
+        parcel.writeByte((byte) (hide_status ? 1 : 0));
+        parcel.writeInt(num_reviews);
+        parcel.writeString(_id);
+        parcel.writeString(uploader_id);
+        parcel.writeString(caption);
+        parcel.writeString(post_type);
+        parcel.writeTypedList(comments);
+    }
 }
