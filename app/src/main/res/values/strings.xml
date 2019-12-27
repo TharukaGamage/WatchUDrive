@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">WatchUDrive</string>
 
+    <string name="txt1">Choose file to upload</string>
+    <string name="btn1">Camera</string>
+    <string name="btn2">Gallery</string>
+
+    <string name="txt3">License Plate</string>
+    <string name="txt4">Specify the traffic violence</string>
+    <string name="txt5">Place</string>
 </resources>

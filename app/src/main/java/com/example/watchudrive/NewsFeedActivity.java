@@ -1,7 +1,9 @@
 package com.example.watchudrive;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 
 import androidx.annotation.Nullable;
@@ -20,6 +22,8 @@ public class NewsFeedActivity extends AppCompatActivity{
     TabLayout tabLayout;
      @BindView(R.id.id_viewPager)
     ViewPager viewPager;
+     @BindView(R.id.id_search_text)
+     EditText editText;
      /*@BindView(R.id.id_search_text)
     EditText editTextSearchBar;*/
      private NewsFeedViewpagerAdapter adapter;
@@ -30,6 +34,14 @@ public class NewsFeedActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news_feed_activity);
         ButterKnife.bind(this);
+
+        editText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(NewsFeedActivity.this,reader.class);
+                startActivity(i);
+            }
+        });
 
         adapter = new NewsFeedViewpagerAdapter(getSupportFragmentManager());
 

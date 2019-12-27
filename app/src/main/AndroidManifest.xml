@@ -3,6 +3,7 @@
     package="com.example.watchudrive">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".reader"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,16 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity">
-
-        </activity>
-        <activity android:name=".NewsFeedActivity">
-
-        </activity>
+        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".NewsFeedActivity"></activity>
         <activity android:name=".CommentVieweActivity" />
         <activity android:name=".ReviewActivity" />
         <activity android:name=".ImageReviewActivity" />
-
     </application>
 
 </manifest>

@@ -24,8 +24,8 @@ android {
     }
 }
 
- def paging_version = "1.0.1"
- def retrofit_version = "2.4.0"
+def paging_version = "1.0.1"
+def retrofit_version = "2.4.0"
 
 dependencies {
 
@@ -63,5 +63,8 @@ dependencies {
     // paging library
     implementation "android.arch.paging:runtime:$paging_version"
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+
+    implementation 'com.google.android.gms:play-services-vision:19.0.0'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.1.+'
 
 }

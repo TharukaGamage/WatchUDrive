@@ -103,7 +103,7 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:background="@drawable/loading_shape"
-            android:src="@drawable/samplehd" />
+             />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.Guideline
